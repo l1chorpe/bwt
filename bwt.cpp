@@ -10,15 +10,15 @@ using std::vector;
 /**
  * @brief Aplies the BWT in-place on each string in fileContent.
  * 
- * @param fileContent A list of words
+ * @param fileContent A list of strings
  */
 void BWT::transform(vector<string>& fileContent)
 {
     for(string& element : fileContent)
     {
-        // Prepare the string for the transform
+        // Prepare the string for the transformation
         element += '$';
-        // Create a "matrix" with all the rotations
+        // Create a matrix with all the rotations of the strings
         vector<string> matrix{};
         for(int i = 0; i < element.length(); ++i)
         {
@@ -26,7 +26,7 @@ void BWT::transform(vector<string>& fileContent)
             std::rotate(element.begin(), element.begin() + 1, element.end());
         }
 
-        // Sort, get the last column of the "matrix", and replace the original string
+        // Sort, get the last column of the matrix, and replace the original string
         std::sort(matrix.begin(), matrix.end());
         string bwt{};
         for(const string& line : matrix)
@@ -37,8 +37,15 @@ void BWT::transform(vector<string>& fileContent)
     }
 }
 
+/**
+ * @brief Reverses BWT in-place for each string in fileContent.
+ * 
+ * @param fileContent A list of strings "encoded" with BWT
+ */
 void BWT::untransform(vector<string>& fileContent)
 {
+    // For each string, make an nxn matrix (where n is the length of the string) and add the i-th character to the i-th
+    // *row* (not column) of the matrix. Sort and repeat until each string in the matrix is of length n
     for(string& element : fileContent)
     {
         const std::size_t element_size = element.size();
@@ -47,12 +54,12 @@ void BWT::untransform(vector<string>& fileContent)
         for(std::size_t i = 0; i < element_size; ++i)
         {
             for(std::size_t j = 0; j < element_size; ++j)
-            {
                 matrix[j] = element[j] + matrix[j];
-            }
+
             std::sort(matrix.begin(), matrix.end());
         }
 
+        // Use the only element that ends with '$'
         for(const string& result : matrix)
         {
             if(result.back() == '$')

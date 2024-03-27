@@ -8,9 +8,9 @@ using std::vector;
 
 
 /**
- * @brief Applies RLE in-place on fileContent.
+ * @brief Applies RLE in-place on every string in fileContent.
  * 
- * @param fileContent A list of words
+ * @param fileContent A list of strings
  */
 void RLE::encode(vector<string>& fileContent)
 {
@@ -35,8 +35,15 @@ void RLE::encode(vector<string>& fileContent)
     }
 }
 
+/**
+ * @brief Applies RLE in reverse on every string in fileContent.
+ * 
+ * @param fileContent A list of strings encoded with RLE
+ */
 void RLE::decode(vector<string>& fileContent)
 {
+    // For all chars in each string, check if it's a digit. If true, append it to the previous digit; if false, repeat
+    // the character stoi(number) times
     for(string& element : fileContent)
     {
         string number = "", result = "";
@@ -55,6 +62,7 @@ void RLE::decode(vector<string>& fileContent)
                 number = "";
             }
         }
+        // Removes the '$' at the end
         element = result.substr(0, result.length() - 1);
     }
 }
