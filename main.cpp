@@ -93,6 +93,28 @@ bool handleCLIArgs(int argc, char* argv[])
             flags.set(1);
         if(strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--rle") == 0)
             flags.set(0);
+
+        if(strcmp(argv[i], "-br") == 0)
+        {
+            flags.set(1);
+            flags.set(0);
+        }
+        if(strcmp(argv[i], "-xb") == 0)
+        {
+            flags.set(2);
+            flags.set(1);
+        }
+        if(strcmp(argv[i], "-xr") == 0)
+        {
+            flags.set(2);
+            flags.set(0);
+        }
+        if(strcmp(argv[i], "-xbr") == 0)
+        {
+            flags.set(2);
+            flags.set(1);
+            flags.set(0);
+        }
     }
 
     // If flags is still 0, the CLI args are invalid
