@@ -64,7 +64,7 @@ void BWT::untransform(vector<string>& fileContent)
         {
             if(result.back() == '$')
             {
-                element = result;
+                element = result.substr(0, result.length() - 1);
                 break;
             }
         }

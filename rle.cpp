@@ -62,7 +62,6 @@ void RLE::decode(vector<string>& fileContent)
                 number = "";
             }
         }
-        // Removes the '$' at the end
-        element = result.substr(0, result.length() - 1);
+        element = result;
     }
 }
