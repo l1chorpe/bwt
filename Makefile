@@ -1,5 +1,6 @@
-files := $(wildcard *.cpp)
+cpp_files := $(wildcard *.cpp)
+h_files := $(wildcard *.h)
 executable := bwt
 
-$(executable): $(files)
-	g++ -o $(executable) $(files)
+$(executable): $(cpp_files) $(h_files)
+	g++ -o $(executable) $(cpp_files)
