@@ -259,8 +259,8 @@ void displayUsage(std::ostream& displayStream)
         "    -x, --extract: Extracts the data from the compressed file. If no other options are used, it uses BWT and "
         "RLE by default.\n\n"
 
-        "The program compresses when used without -x. Flags can be shortened by grouping them with a single hyphen:\n"
-        "'bwt -x -r' can be shortened to 'bwt -xr'.\n\n"
+        "The program compresses by default unless -x is used.\n"
+        "Flags can grouped together with a single hyphen: '-x -r' becomes '-xr'.\n\n"
     
         "Examples:\n"
         "    'bwt data.txt': Compresses the data inside data.txt using BWT and RLE.\n"
