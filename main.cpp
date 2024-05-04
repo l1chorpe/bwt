@@ -249,16 +249,27 @@ void handleData(int dataPos, char* argv[], Flags flags)
  */
 void displayUsage(std::ostream& displayStream)
 {
-    displayStream << "Usage: bwt <options> [filename]\n\n"
+    displayStream <<
+        "Usage: bwt <options> [filename]\n\n"
 
-                  << "Options:\n"
-                  << "    -b, --bwt: Restricts the compression/decompression to BWT.\n\n"
-                  << "    -h, --help: Displays this page.\n\n"
-                  << "    -r, --rle: Restricts the compression/decompression to RLE.\n\n"
-                  << "    -x, --extract: Extracts the data from the compressed file. If no other options are used, it uses"
-                     " BWT and RLE by default.\n\n"
+        "Options:\n"
+        "    -b, --bwt: Restricts the compression/decompression to BWT.\n\n"
+        "    -h, --help: Displays this page.\n\n"
+        "    -r, --rle: Restricts the compression/decompression to RLE.\n\n"
+        "    -x, --extract: Extracts the data from the compressed file. If no other options are used, it uses BWT and "
+        "RLE by default.\n\n"
 
-                  << "The program compresses when used without -x. Flags can be shortened by grouping them with a single"
-                     " hyphen:\n"
-                  << "'bwt -x -r' can be shortened to 'bwt -xr'.\n";
+        "The program compresses when used without -x. Flags can be shortened by grouping them with a single hyphen:\n"
+        "'bwt -x -r' can be shortened to 'bwt -xr'.\n\n"
+    
+        "Examples:\n"
+        "    'bwt data.txt': Compresses the data inside data.txt using BWT and RLE.\n"
+        "    'bwt -xbr data.br': Functionally equivalent to 'bwt -x data.br'; decompresses data.br using BWT and RLE.\n"
+        "    'bwt --rle data.txt': Compresses data.txt only using RLE.\n\n"
+    
+        "Output:\n"
+        "    When compressing, the program will take the filename and append it '.bwt', '.rle' or '.br', if it uses "
+        "BWT, RLE or both, respectively, and write in a file with that name.\n"
+        "    When decompressing, it will strip those extensions from the filename (if they are present) and write in a"
+        " file with that name.\n";
 }
