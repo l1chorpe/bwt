@@ -251,13 +251,14 @@ void displayUsage(std::ostream& displayStream)
 {
     displayStream << "Usage: bwt [filename] <options>\n\n"
 
-              << "Options:\n"
-              << "    -x, --extract: Extracts the data from the compressed file. If no other options are used, it uses"
-                 " BWT and RLE by default.\n\n"
-              << "    -b, --bwt: Restricts the compression/decompression to BWT.\n\n"
-              << "    -r, --rle: Restricts the compression/decompression to RLE.\n\n"
+                  << "Options:\n"
+                  << "    -b, --bwt: Restricts the compression/decompression to BWT.\n\n"
+                  << "    -h, --help: Displays this page.\n\n"
+                  << "    -r, --rle: Restricts the compression/decompression to RLE.\n\n"
+                  << "    -x, --extract: Extracts the data from the compressed file. If no other options are used, it uses"
+                     " BWT and RLE by default.\n\n"
 
-              << "The program compresses when used without -x. Flags can be shortened by grouping them with a single"
-                 " hyphen:\n"
-              << "'bwt -x -r' can be shortened to 'bwt -xr'.\n";
+                  << "The program compresses when used without -x. Flags can be shortened by grouping them with a single"
+                     " hyphen:\n"
+                  << "'bwt -x -r' can be shortened to 'bwt -xr'.\n";
 }
