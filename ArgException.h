@@ -2,7 +2,9 @@
 #include <string>
 
 /**
- * @brief This is a base class and shouldn't be instantiated.
+ * @brief Thrown whenever an error occurs with the command line arguments (or flags).
+ * 
+ * This is a base class and shouldn't be instantiated.
  * 
  */
 class ArgException : public std::runtime_error
