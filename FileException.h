@@ -8,7 +8,7 @@
  * This is a base class and shouldn't be instantiated.
  * 
  */
-class FileException : std::runtime_error
+class FileException : public std::runtime_error
 {
     public:
         explicit FileException(const std::string& msg) : std::runtime_error(msg) { }

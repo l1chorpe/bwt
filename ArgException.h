@@ -5,7 +5,7 @@
  * @brief This is a base class and shouldn't be instantiated.
  * 
  */
-class ArgException : std::runtime_error
+class ArgException : public std::runtime_error
 {
     public:
         explicit ArgException(const std::string& msg) : std::runtime_error(msg) { }
