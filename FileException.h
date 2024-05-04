@@ -18,7 +18,7 @@ class FileException : public std::runtime_error
  * @brief Thrown when a file is empty.
  * 
  */
-class EmptyFileException final : FileException
+class EmptyFileException final : public FileException
 {
     public:
         EmptyFileException() : FileException("The file provided is empty.") { }
@@ -28,13 +28,13 @@ class EmptyFileException final : FileException
  * @brief Thrown when a file can't be read.
  * 
  */
-class FileReadException final : FileException
+class FileReadException final : public FileException
 {
     public:
         FileReadException() : FileException("The file couldn't be opened.") { }
 };
 
-class FileWriteException final : FileException
+class FileWriteException final : public FileException
 {
     public:
         FileWriteException() : FileException("The file couldn't be written to.") { }

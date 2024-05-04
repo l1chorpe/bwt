@@ -15,7 +15,7 @@ class ArgException : public std::runtime_error
  * @brief Throw when the program is called without arguments.
  * 
  */
-class MissingArgsException final : ArgException
+class MissingArgsException final : public ArgException
 {
     public:
         MissingArgsException() : ArgException("No arguments were provided.") { }
@@ -25,7 +25,7 @@ class MissingArgsException final : ArgException
  * @brief Thrown when the program is called with more than 4 arguments.
  * 
  */
-class InvalidArgCountException final : ArgException
+class InvalidArgCountException final : public ArgException
 {
     public:
         InvalidArgCountException() : ArgException("Too many arguments were given.") { }
@@ -35,7 +35,7 @@ class InvalidArgCountException final : ArgException
  * @brief Thrown when the program is called with invalid flags. 
  * 
  */
-class InvalidArgsException final : ArgException
+class InvalidArgsException final : public ArgException
 {
     public:
         InvalidArgsException() : ArgException("The arguments provided are invalid.") { }
