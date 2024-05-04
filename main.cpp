@@ -249,7 +249,7 @@ void handleData(int dataPos, char* argv[], Flags flags)
  */
 void displayUsage(std::ostream& displayStream)
 {
-    displayStream << "Usage: bwt [filename] <options>\n\n"
+    displayStream << "Usage: bwt <options> [filename]\n\n"
 
                   << "Options:\n"
                   << "    -b, --bwt: Restricts the compression/decompression to BWT.\n\n"
